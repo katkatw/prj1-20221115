@@ -35,6 +35,18 @@
 						</label>
 						<input class="form-control-plaintext" type="text" value="${member.id }" readonly>
 					</div>
+					
+					<div class="mb-3">
+						<label for="" class="form-label">
+							별명 
+						</label>
+						<div class="input-group">
+							<input id="nickNameInput1" class="form-control" type="text" value="${member.nickName }" name="nickName" data-old-value="${member.nickName }">
+							<button disabled id="nickNameButton1" type="button" class="btn btn-outline-secondary">중복확인</button>
+						</div>
+						<div id="nickNameText1" class="form-text"></div>
+					</div>
+					
 					<div class="mb-3">
 						<label for="" class="form-label">
 							암호 
