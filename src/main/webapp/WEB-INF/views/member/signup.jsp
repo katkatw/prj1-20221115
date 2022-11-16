@@ -47,7 +47,7 @@
 						<div id="nickNameText1" class="form-text">별명 중복확인을 해주세요.</div>
 						
 					</div>
-					
+
 					<div class="mb-3">
 						<label for="" class="form-label">
 							암호
@@ -97,7 +97,7 @@ let availableNickName = false;
 
 function enableSubmitButton() {
 	const button = document.querySelector("#submitButton1");
-	if (availableId && availableEmail && availablePassword) {
+	if (availableId && availableEmail && availablePassword && availableNickName) {
 		button.removeAttribute("disabled")
 	} else {
 		button.setAttribute("disabled", "");

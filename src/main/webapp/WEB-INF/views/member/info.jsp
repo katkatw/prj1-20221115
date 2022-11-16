@@ -42,17 +42,11 @@
 				
 				<div class="mb-3">
 					<label for="" class="form-label">
-						아이디
+						별명
 					</label>
 					<input class="form-control" type="text" value="${member.nickName }" readonly>
 				</div>
 				
-				<div class="mb-3">
-					<label for="" class="form-label">
-						암호 
-					</label>
-					<input class="form-control" type="text" value="${member.password }" readonly>
-				</div>
 				<div class="mb-3">
 					<label for="" class="form-label">
 						이메일 
