@@ -30,13 +30,11 @@
 					<sec:authentication property="name" var="username" />
 					
 					<%-- 작성자와 authentication.name 같으면 보여줌 --%>
-					<c:if test="${board.writer == username}" >
+					<c:if test="${board.writer == username}">
 						<a class="btn btn-warning" href="${modifyLink }">
 							<i class="fa-solid fa-pen-to-square"></i>
 						</a>
-					</c:if>
-					
-					
+					</c:if>		
 					
 				</h1>
 			
