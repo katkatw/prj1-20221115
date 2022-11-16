@@ -19,10 +19,28 @@ import com.study.service.member.MemberService;
 
 @Controller
 @RequestMapping("member")
-public class MemberController {  
+public class MemberController {
 
 	@Autowired
 	private MemberService service;
+
+	@GetMapping("existNickName/{nickName}")
+	@ResponseBody
+	public Map<String, Object> existNickName(@PathVariable String nickName) {
+		Map<String, Object> map = new HashMap<>();
+
+		MemberDto member = service.getByNickName(nickName);
+
+		if (member == null) {
+			map.put("status", "not exist");
+			map.put("message", "사용가능한 별명입니다.");
+		} else {
+			map.put("status", "exist");
+			map.put("message", "이미 존재하는 별명입니다.");
+		}
+
+		return map;
+	}
 
 	@PostMapping("existEmail")
 	@ResponseBody
@@ -66,8 +84,8 @@ public class MemberController {
 
 	}
 
-	@PostMapping("signup")																		
-	public String signup(MemberDto member, RedirectAttributes rttr) { 
+	@PostMapping("signup")
+	public String signup(MemberDto member, RedirectAttributes rttr) {
 		System.out.println(member);
 
 		int cnt = service.insert(member);
@@ -105,7 +123,7 @@ public class MemberController {
 				return "redirect:/member/modify";
 			}
 		} else {
-			rttr.addFlashAttribute("message", "암호가 일치하지 않습니다."); 
+			rttr.addFlashAttribute("message", "암호가 일치하지 않습니다.");
 			return "redirect:/member/modify";
 		}
 
@@ -115,7 +133,7 @@ public class MemberController {
 	public String remove(String id, String oldPassword, RedirectAttributes rttr) {
 		MemberDto oldmember = service.getById(id);
 
-		if (oldmember.getPassword().equals(oldPassword)) { 
+		if (oldmember.getPassword().equals(oldPassword)) {
 			int cnt = service.remove(id);
 
 			rttr.addFlashAttribute("message", "회원 탈퇴하였습니다.");
