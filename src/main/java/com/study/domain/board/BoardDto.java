@@ -7,7 +7,7 @@ import java.util.List;
 
 import lombok.Data;
 
-@Data 
+@Data
 public class BoardDto {
 	private int id;
 	private String title;
@@ -16,6 +16,9 @@ public class BoardDto {
 	private LocalDateTime inserted;
 	private int countReply;
 	private int countFile;
+	private int countLike;
+	
+	private boolean liked;
 	
 	private List<String> fileName;
 
